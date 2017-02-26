@@ -4,14 +4,12 @@ from abc import ABCMeta,abstractmethod
 class Button(metaclass=ABCMeta):
     '''
     Abstract class wrapping a turtle object to be used as a clickable button.
-
     The abstract method, fun, is called when the button is clicked on.
     '''
     def __init__(self,my_turtle=None,shape=None,pos=(0,0)):
         '''
         Initialize Button object.  The button will be given an onclick
         listener that triggers the implementation of the abstract method, fun.
-
         :param my_turtle: turtle object which, when clicked, will trigger
                             the action specified in the fun method.
                             Default value=None - with this input, a new
@@ -50,7 +48,6 @@ class Button(metaclass=ABCMeta):
         '''
         Abstract method whose implementation is called when
         button gets pressed.  Must be implemented in concrete subclasses.
-
         :param x: integer, horizontal coordinate of click in pixels (required for onclick)
                   Default=None
         :param y: integer, vertical coordinate of click in pixels (required for onclick)
@@ -66,9 +63,7 @@ class TextInput(metaclass=ABCMeta):
     def __init__(self, width=200, height=100, pos=(0,0), background_gif=None, letters_per_line=40):
         '''
         Initialize TextInput object.
-
         Store message in instance attribute, new_msg.
-
         :param width: integer, width of box (pixels).  Default=200 pixels.
         :param height: integer, height of box (pixels).  Default=100 pixels.
         :param pos: tuple, (x,y) - textbox location on screen.  Default=(0,0)
@@ -81,7 +76,7 @@ class TextInput(metaclass=ABCMeta):
         self.height=height
         self.letters_per_line=letters_per_line
         self.background_gif=background_gif
-        self.new_msg='' #This string stores text stream going into text ox.
+        self.new_msg='' #This string stores text stream going into text box.
         self.pos=pos
         self.writer=turtle.clone()
         self.writer.hideturtle()
@@ -109,10 +104,8 @@ class TextInput(metaclass=ABCMeta):
         Method to write the message to the screen after every
         keypress.  Abstract method; must be implemented in
         concrete classes.
-
         Opportunity, also, to clean strings - add in newlines,
         '\r', for example, when needed, etc.
-
         Side effect method - no inputs or outputs, but
         new_msg may be changed.
         '''
@@ -606,4 +599,4 @@ class TextInput(metaclass=ABCMeta):
     def add_9(self):
         self.new_msg+='9'
         self.write_msg()
-        print(self.new_msg)
+print(self.new_msg)

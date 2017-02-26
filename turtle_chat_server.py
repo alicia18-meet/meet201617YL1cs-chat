@@ -9,7 +9,6 @@ DEFAULT_PORT = 9009
 def chat_server(HOST=DEFAULT_HOST, PORT=DEFAULT_PORT):
     '''
     Run this method in main to spawn a new server.
-
     :param HOST: hostname, string.  Default='localhost'.
     :param PORT: port number, integer.  Default=9009
     '''
@@ -35,7 +34,7 @@ def chat_server(HOST=DEFAULT_HOST, PORT=DEFAULT_PORT):
                 sockfd, addr = server_socket.accept()
                 SOCKET_LIST.append(sockfd)
                 print("Client (%s, %s) connected" % addr)
-                broadcast(server_socket, sockfd, "[%s:%s] entered our chat session\n" % addr)
+                #broadcast(server_socket, sockfd, "[%s:%s] entered our chat session\n" % addr)
 
             # a message from a client, not a new connection
             else:
@@ -74,7 +73,3 @@ def broadcast (server_socket, sock, message):
  
 if __name__ == "__main__":
     sys.exit(chat_server())
-
-
-         
-

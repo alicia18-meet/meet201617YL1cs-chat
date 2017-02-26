@@ -18,7 +18,6 @@ class Client:
     def __init__(self,username='Me',partner_name='Partner',hostname=None,port=None):
         '''
         Initialize a new client object.
-
         :param username: string, name of chat participant.  Default value='Me'
         :param partner_name: string, name of partner that you are chatting with.
                             Default='Partner'
@@ -56,7 +55,6 @@ class Client:
     def send(self, msg):
         '''
         Send string through socket.  Encode to bytes-like object.
-
         :param msg: string to encode and send through socket belonging to this client.
         '''
         self.server.send(msg.encode())
@@ -64,7 +62,6 @@ class Client:
     def receive(self):
         '''
         Call to check whether the chat partner has sent a message.
-
         :return: String received from partner, or None when chat session has terminated.
         '''
         ready_to_read,ready_to_write,in_error = select.select([self.server] , [], [],Client._TIME_OUT)
@@ -104,4 +101,4 @@ if __name__ == "__main__":
                     print(new_msg)
             else : #Get input to send
                 msg=input()
-                my_client.send(msg)
+my_client.send(msg)
