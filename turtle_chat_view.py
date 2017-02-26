@@ -124,7 +124,7 @@ class View:
     _SCREEN_HEIGHT=600
     _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
 
-    def __init__(self,username='Me',partner_name='Partner'):
+    def __init__(self,username='User 1',partner_name='User 2'):
         '''
         :param username: the name of this chat user
         :param partner_name: the name of the user you are chatting with

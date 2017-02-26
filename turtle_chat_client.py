@@ -101,4 +101,4 @@ if __name__ == "__main__":
                     print(new_msg)
             else : #Get input to send
                 msg=input()
-my_client.send(msg)
+    my_client.send(msg)

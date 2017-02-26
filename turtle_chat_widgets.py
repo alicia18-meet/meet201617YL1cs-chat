@@ -599,4 +599,4 @@ class TextInput(metaclass=ABCMeta):
     def add_9(self):
         self.new_msg+='9'
         self.write_msg()
-print(self.new_msg)
+        print(self.new_msg)
