@@ -11,6 +11,7 @@ Alicia Kamien Kazhdan
 import turtle
 from turtle_chat_client import Client
 from turtle_chat_widgets import Button,TextInput
+turtle.hideturtle()
 #import the Client class from the turtle_chat_client module
 #Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
 #####################################################################################
@@ -37,7 +38,7 @@ class TextBox(TextInput):
         l=drawing.goto(self.pos[0],self.pos[1]+self.height)
         drawing.goto(self.pos)
         drawing.hideturtle()
-        turtle.hideturtle()
+        
         
 
     def write_msg(self):
@@ -84,7 +85,7 @@ class TextBox(TextInput):
 class SendButton(Button):
     def __init__(self,the_view):
         image= "button.gif"
-        super(SendButton,self).__init__(pos = (0,-170),shape=image)
+        super(SendButton,self).__init__(pos = (86,-140),shape=image)
         self.the_view=the_view
         
     def fun(self,x=None,y=None):
@@ -93,7 +94,6 @@ class SendButton(Button):
 
 
 #fun gets called whenever the button is clicked.  Its jobs will be to
-#
 
 # 1. send a message to the other chat participant - to do this,
 #    you will need to call the send method of your Client instance
@@ -144,12 +144,7 @@ class View:
         ###
         #Set screen dimensions using turtle.setup
         #You can get help on this function, as with other turtle functions,
-        #by typing
-        #
-        #   import turtle
-        #   help(turtle.setup)
-        #
-        #at the Python shell.
+        #by typing at the Python shell.
         ###
 
         ###
@@ -196,7 +191,7 @@ class View:
         '''
         self.my_client.send(self.m.new_msg)
         self.msg_queue.append(self.username+" says:\r" +self.m.new_msg)
-        ##self.m.write_msg(self.new_msg)
+        
         self.m.writer.clear()
         self.m.new_msg=''
         self.display_msg()
@@ -245,13 +240,13 @@ class View:
         self.t3.hideturtle()
         self.t4.hideturtle()
         self.t5.hideturtle()
-        ###pen uping
+        ###pen up
         self.t1.penup()
         self.t2.penup()
         self.t3.penup()
         self.t4.penup()
         self.t5.penup()
-        ### starting actuall writing
+        ### start writing
         self.t1.clear()
         self.t1.goto(-100,220)
         self.t1.write(self.msg_queue[-1], font=("Escalope Crust Three",17,"normal"))
@@ -286,7 +281,6 @@ if __name__ == '__main__':
     my_view=View()
     _WAIT_TIME=200 #Time between check for new message, ms
     def check() :
-        #msg_in=my_view.my_client.receive()
         msg_in=my_view.get_client().receive()
         if not(msg_in is None):
             if msg_in==Client._END_MSG:
@@ -298,9 +292,3 @@ if __name__ == '__main__':
     check()
     turtle.mainloop()
 
-
-
-##m=TextBox()
-##m.draw_box()
-##a=SendButton()
-##a.fun()
