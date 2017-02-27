@@ -26,7 +26,7 @@ class TextBox(TextInput):
     def draw_box(self):
         self.pos=(-100,-135)
         screen= turtle.Screen()
-        background="the.gif"
+        background="backg.gif"
         screen.bgpic(background)
         drawing=turtle.clone()
         drawing.penup()
@@ -83,7 +83,7 @@ class TextBox(TextInput):
 
 class SendButton(Button):
     def __init__(self,the_view):
-        image= "i.gif"
+        image= "button.gif"
         super(SendButton,self).__init__(pos = (0,-170),shape=image)
         self.the_view=the_view
         
